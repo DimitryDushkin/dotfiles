@@ -1,0 +1,32 @@
+#!/usr/bin/env bash
+
+source ~/dotfiles/.aliases
+
+if [[ $1 ]]; then
+    TEXT=$1
+else
+    QUERY_NUMBER=$(python -c "import random; print random.randint(0,5)")
+    QUERIES=( BMW Audi Tesla Lamborghini Alisa+Ahmann Demi+Moore )
+    TEXT=${QUERIES[$QUERY_NUMBER]}
+fi
+
+PWD=`pwd`
+PATH_ARRAY=(${PWD//\// })
+
+WC_NAME=$(wcname)
+
+PROJECT_PLATFORM="$(cat "$(echo "$(wcpath)/.project")" | head -n 1)"
+
+case $PROJECT_PLATFORM in
+    video) URL_PATH="video/search?";;
+    video/desktop) URL_PATH="video/search?";;
+    video/touch-phone) URL_PATH="video/touch/search?noredirect=1&";;
+    video/touch-pad) URL_PATH="video/pad/search?noredirect=1&";;
+    images) URL_PATH="images/search?";;
+    images/desktop) URL_PATH="images/search?";;
+    images/touch-phone) URL_PATH="images/touch/search?noredirect=1&";;
+    images/touch-pad) URL_PATH="images/pad/search?noredirect=1&";;
+    *) URL_PATH=$PROJECT_PLATFORM
+esac;
+
+echo "http://$USER-d-$WC_NAME.`hostname`/${URL_PATH}text=$TEXT"
