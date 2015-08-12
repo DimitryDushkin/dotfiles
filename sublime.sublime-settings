@@ -9,32 +9,47 @@
 	"ensure_newline_at_eof_on_save": true,
 	"folder_exclude_patterns":
 	[
-		"pages-touch-pad",
 		".enb/tmp",
 		".git",
-		"freeze",
-		"report",
-		"touch-phone",
-		"desktop",
-		"touch-pad",
+		".githooks",
+		"contribs/images-viewer/node_modules",
+		"images/.tanker",
+		"images/desktop/pages",
+		"images/desktop/pages-desktop",
+		"images/node_modules",
+		"images/touch-phone/pages",
+		"images/touch-phone/pages-touch",
 		"node_modules",
-		"./libs",
-		"./fiji/libs",
-		"static"
+		"report",
+		"sakhalin/.tanker",
+		"sakhalin/node_modules",
+		"sakhalin/node_modules/jshint/src/platforms",
+		"static",
+		"video/.tanker",
+		"video/desktop/pages",
+		"video/desktop/pages-desktop",
+		"video/node_modules",
+		"video/touch-pad/pages",
+		"video/touch-pad/pages-touch-pad",
+		"video/touch-phone/pages",
+		"video/touch-phone/pages-touch"
 	],
 	"font_face": "Roboto Mono",
 	"font_size": 19,
 	"highlight_line": true,
 	"ignored_packages":
 	[
-		"Vintage",
 		"Emmet",
-		"Makefile",
-		"CSS"
+		"CSS",
+		"Vintage",
+		"Makefile"
 	],
 	"index_exclude_patterns":
 	[
-		"*.log"
+		"*.log",
+		"libs",
+		"gemini",
+		"gemini-report"
 	],
 	"sidebar_xlarge": true,
 	"spacegray_sidebar_font_xlarge": true,
