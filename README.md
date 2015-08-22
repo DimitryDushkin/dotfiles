@@ -6,7 +6,7 @@ dotfiles
 ### Установка
 
 ```bash
-git clone git://github.yandex-team.ru/search-interfaces/dotfiles ~/dotfiles && ~/dotfiles/install.sh
+git clone git://github.com/DimitryDushkin/dotfiles ~/dotfiles && ~/dotfiles/install.sh
 ```
 
 ### FAQ
