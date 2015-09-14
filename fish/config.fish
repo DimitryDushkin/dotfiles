@@ -1,12 +1,18 @@
+rvm default
+
+bass source ~/.nvm/nvm.sh
+
+test -e {$HOME}/.iterm2_shell_integration.fish ; and source {$HOME}/.iterm2_shell_integration.fish
+
 # Prepend the relative ./bin, so I can get binstubs and the like in the PATH
 # automatically. The node modules binaries are also handy to have around. I
 # don't like installing global node packages.
-set --export PATH "./bin" "./node_modules/.bin" $PATH
+# sbin is for brew
+set -gx PATH $PATH "./bin" "./node_modules/.bin" "/usr/local/sbin"
 
-set --export NODE_PATH "/usr/local/lib/node_modules"
-set --export NODE_PATH "$HOME/node_modules/.bin"     $NODE_PATH
-set --export NODE_PATH "./node_modules" $NODE_PATH
-set --export NODE_PATH "." $NODE_PATH
+set -gx NODE_PATH $PWD/node_modules \
+                  /usr/local/lib/node_modules \
+                  $NODE_PATH
 
 alias gst="git status"
 alias ga='git add'
@@ -47,7 +53,7 @@ end
 set -g __fish_git_prompt_show_informative_status 1
 set -g __fish_git_prompt_hide_untrackedfiles 1
 
-set -g __fish_git_prompt_color_branch magenta bold
+set -g __fish_git_prompt_color_branch magenta
 set -g __fish_git_prompt_showupstream "informative"
 set -g __fish_git_prompt_char_upstream_ahead "↑"
 set -g __fish_git_prompt_char_upstream_behind "↓"
@@ -63,7 +69,7 @@ set -g __fish_git_prompt_color_dirtystate blue
 set -g __fish_git_prompt_color_stagedstate yellow
 set -g __fish_git_prompt_color_invalidstate red
 set -g __fish_git_prompt_color_untrackedfiles $fish_color_normal
-set -g __fish_git_prompt_color_cleanstate green bold
+set -g __fish_git_prompt_color_cleanstate green
 
 
 function fish_prompt --description 'Write out the prompt'
@@ -87,4 +93,8 @@ function fish_prompt --description 'Write out the prompt'
 
   echo -n '$ '
 
+end
+
+function nvm --description 'NVM wrapper'
+  bass source ~/.nvm/nvm.sh ';' nvm $argv
 end
