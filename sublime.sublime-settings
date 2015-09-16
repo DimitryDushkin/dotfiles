@@ -1,11 +1,13 @@
 {
+	"always_show_minimap_viewport": true,
 	"atomic_save": false,
+	"bold_folder_labels": true,
 	"caret_style": "phase",
 	"codeintel_disabled_languages":
 	[
 		"css"
 	],
-	"color_scheme": "Packages/User/SublimeLinter/predawn (SL).tmTheme",
+	"color_scheme": "Packages/Material Theme/schemes/Material-Theme-Lighter.tmTheme",
 	"ensure_newline_at_eof_on_save": true,
 	"folder_exclude_patterns":
 	[
@@ -20,7 +22,6 @@
 		"images/touch-phone/pages",
 		"images/touch-phone/pages-touch",
 		"node_modules",
-		"report",
 		"sakhalin/.tanker",
 		"sakhalin/node_modules",
 		"sakhalin/node_modules/jshint/src/platforms",
@@ -32,25 +33,32 @@
 		"video/touch-pad/pages",
 		"video/touch-pad/pages-touch-pad",
 		"video/touch-phone/pages",
-		"video/touch-phone/pages-touch"
+		"video/touch-phone/pages-touch",
+		"libs",
+		"report/templates/YxWeb"
 	],
-	"font_face": "Roboto Mono",
-	"font_size": 19,
+	"font_face": "Consolas",
+	"font_size": 22,
 	"highlight_line": true,
 	"ignored_packages":
 	[
-		"Emmet",
 		"CSS",
-		"Vintage",
-		"Makefile"
+		"Emmet",
+		"Makefile",
+		"report",
+		"Vintage"
 	],
 	"index_exclude_patterns":
 	[
 		"*.log",
-		"libs",
 		"gemini",
-		"gemini-report"
+		"gemini-report",
+		"back/tmp",
+		"*.map.js"
 	],
+	"line_padding_bottom": 3,
+	"line_padding_top": 3,
+	"overlay_scroll_bars": "enabled",
 	"sidebar_xlarge": true,
 	"spacegray_sidebar_font_xlarge": true,
 	"spacegray_sidebar_tree_xlarge": true,
@@ -59,7 +67,7 @@
 	"spacegray_tabs_xlarge": true,
 	"tab_size": 4,
 	"tabs_medium": true,
-	"theme": "predawn.sublime-theme",
+	"theme": "Material-Theme-Lighter.sublime-theme",
 	"translate_tabs_to_spaces": true,
 	"trim_trailing_white_space_on_save": true
 }
