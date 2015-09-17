@@ -26,7 +26,7 @@ alias gfa='git fetch --all'
 alias grdi='git rebase -i origin/dev'
 alias grd='git rebase origin/dev'
 alias gfpcb='git push origin +(git rev-parse --abbrev-ref HEAD)'
-alias gamend='git add .; and git commit --amend'
+alias gamend='git add .; and git commit --amend --no-edit'
 
 function jailmount --description 'Mount remote folder via sshfs'
     set_color blue
