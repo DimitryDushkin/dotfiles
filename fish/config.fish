@@ -22,9 +22,10 @@ alias gush='git push'
 alias gb='git branch'
 alias gco='git checkout'
 alias gd='git diff'
+alias gdi='git difftool --extcmd icdiff'
 alias gfa='git fetch --all'
-alias grdi='git rebase -i origin/dev'
-alias grd='git rebase origin/dev'
+alias grdi='git rebase -i origin/dev --autosquash'
+alias grd='git rebase origin/dev --autosquash'
 alias gfpcb='git push origin +(git rev-parse --abbrev-ref HEAD)'
 alias gamend='git add .; and git commit --amend --no-edit'
 
@@ -97,4 +98,16 @@ end
 
 function nvm --description 'NVM wrapper'
   bass source ~/.nvm/nvm.sh ';' nvm $argv
+end
+
+function unlink_libs
+  set libs_link (readlink libs)
+  unlink libs
+  mv $libs_link libs
+end
+
+function unlink_node_modules
+  set node_modules_link (readlink node_modules)
+  unlink node_modules
+  mv $node_modules_link node_modules
 end
