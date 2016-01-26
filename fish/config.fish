@@ -1,6 +1,6 @@
-rvm default
+# rvm default
 
-bass source ~/.nvm/nvm.sh
+# bass source ~/.nvm/nvm.sh
 
 test -e {$HOME}/.iterm2_shell_integration.fish ; and source {$HOME}/.iterm2_shell_integration.fish
 

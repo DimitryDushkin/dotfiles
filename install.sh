@@ -20,16 +20,9 @@ git config --global user.email "$GIT_AUTHOR_EMAIL"
 #source ~/.profile
 
 rm ~/.config/fish/config.fish
+mkdir ~/.config
+mkdir ~/.config/fish
 ln -s ~/dotfiles/fish/config.fish ~/.config/fish/config.fish
 
-#
-echo Настройка vim ...
-echo Fetch/update neobundle.vim
-rm -rf ~/.vim/bundle/neobundle.vim
-wget -q https://codeload.github.com/Shougo/neobundle.vim/tar.gz/master
-mkdir -p .vim/bundle/
-tar xf master
-mv neobundle.vim-master .vim/bundle/neobundle.vim
-rm master
 
 echo Done
