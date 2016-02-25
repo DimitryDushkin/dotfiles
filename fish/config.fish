@@ -8,9 +8,10 @@ test -e {$HOME}/.iterm2_shell_integration.fish ; and source {$HOME}/.iterm2_shel
 # automatically. The node modules binaries are also handy to have around. I
 # don't like installing global node packages.
 # sbin is for brew
-set -gx PATH $PATH "./bin" "./node_modules/.bin" "/usr/local/sbin"
-
-set -gx NODE_PATH $PWD/node_modules \
+set -gx PATH $PATH "~/bin" "./bin" "./node_modules/.bin" "/usr/local/sbin"
+set npm_root (npm root -g)
+set -gx NODE_PATH $npm_root \
+                  $PWD/node_modules \
                   /usr/local/lib/node_modules \
                   $NODE_PATH
 
