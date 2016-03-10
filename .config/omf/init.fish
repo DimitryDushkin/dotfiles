@@ -3,7 +3,7 @@
 # automatically. The node modules binaries are also handy to have around. I
 # don't like installing global node packages.
 # sbin is for brew
-#set -gx PATH $PATH "~/bin" "./bin" "./node_modules/.bin" "/usr/local/sbin"
+set -gx PATH $PATH "~/bin" "./bin" "./node_modules/.bin"
 #set npm_root (npm root -g)
 #set -gx NODE_PATH $npm_root \
 #                  $PWD/node_modules \
