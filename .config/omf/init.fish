@@ -4,11 +4,7 @@
 # don't like installing global node packages.
 # sbin is for brew
 set -gx PATH $PATH "~/bin" "./bin" "./node_modules/.bin"
-#set npm_root (npm root -g)
-#set -gx NODE_PATH $npm_root \
-#                  $PWD/node_modules \
-#                  /usr/local/lib/node_modules \
-#                  $NODE_PATH
+set -gx NODE_PATH $NODE_PATH (npm prefix -g)/lib/node_modules
 
 alias gst="git status"
 alias ga='git add'
