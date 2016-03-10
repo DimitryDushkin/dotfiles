@@ -1,28 +1,25 @@
 #!/usr/bin/env bash
 
 cd "$(dirname "$0")"
-git pull
 for f in `find . -name '\.*' -exec basename {} \; | grep -v 'git\|\.$'`
 do
     ln -fs $PWD/$f ~
 done
 
-#
-echo Настройка git ...
+echo "Настройка git ..."
 GIT_AUTHOR_NAME=`git config --global user.name`
 GIT_AUTHOR_EMAIL=`git config --global user.email`
 cp .gitconfig ~/.gitconfig
 git config --global user.name "$GIT_AUTHOR_NAME"
 git config --global user.email "$GIT_AUTHOR_EMAIL"
 
-#
-#echo Перезагрузка bash-профиля ...
-#source ~/.profile
+# install oh my fish
+curl -L https://github.com/oh-my-fish/oh-my-fish/raw/master/bin/install | fish
+omf install nvm
+rm -rf ~/.config/omf
 
-rm ~/.config/fish/config.fish
+# Install oh my fish config
 mkdir ~/.config
-mkdir ~/.config/fish
-ln -s ~/dotfiles/fish/config.fish ~/.config/fish/config.fish
-
+ln -s ~/dotfiles/.config/omf ~/.config/omf
 
 echo Done

@@ -10,55 +10,18 @@ if [[ -z `git config --global user.email` ]]; then
     git config --global user.email "$GIT_AUTHOR_EMAIL"
 fi
 
-# # Load the shell dotfiles, and then some:
-# # * ~/.path can be used to extend `$PATH`.
-# # * ~/.extra can be used for other settings you don’t want to commit.
-# for file in ~/.{path,bash_prompt,exports,aliases,functions,extra}; do
-#     [ -r "$file" ] && source "$file"
-# done
-# unset file
-
 # source ~/dotfiles/git-completion.bash
-# [ -e `which npm` ] && . <(npm completion)
-
 # export PATH=bin:$PATH
 
 # if [ -f /usr/local/etc/bash_completion ]; then
 #     . /usr/local/etc/bash_completion
 # fi
 
-# # Create a new directory and enter it
-# function d() {
-#     mkdir -p "$@" && cd "$@"
-# }
-
-# # Determine size of a file or total size of a directory
-# function fs() {
-#     if du -b /dev/null > /dev/null 2>&1; then
-#         local arg=-sbh
-#     else
-#         local arg=-sh
-#     fi
-#     if [[ -n "$@" ]]; then
-#         du $arg -- "$@"
-#     else
-#         du $arg .[^.]* *
-#     fi
-# }
-
-# _expand()
-# {
-#     return 0;
-# }
-
 # # Save ssh agent socket for using in tmux sessions
 # if [[ $SSH_AUTH_SOCK && $SSH_AUTH_SOCK != $HOME/.ssh/ssh_auth_sock ]]
 # then
 #     ln -sf $SSH_AUTH_SOCK ~/.ssh/ssh_auth_sock
 # fi
-
-
-
 
 # [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
 
