@@ -115,3 +115,9 @@ if ! shopt -oq posix; then
     . /etc/bash_completion
   fi
 fi
+
+# Save ssh agent socket for using in tmux sessions
+if [[ $SSH_AUTH_SOCK && $SSH_AUTH_SOCK != $HOME/.ssh/ssh_auth_sock ]]
+then
+     ln -sf $SSH_AUTH_SOCK ~/.ssh/ssh_auth_sock
+fi
