@@ -1,22 +1,3 @@
-# git bisect helpers
-alias gb-bad='git bisect bad && make'
-alias gb-good='git bisect good && make'
-
-# ( optimize all — oo — o2 ) css|svg
-alias o2svg='gd origin/dev --name-only --diff-filter=ACMR | grep ".svg" | while read line; do svgo $line; done'
-alias o2css='gd origin/dev --name-only --diff-filter=ACMR | grep ".css" | while read line; do csscomb $line; done'
-
-# IP addresses
-alias ip="dig +short myip.opendns.com @resolver1.opendns.com"
-alias localip="ipconfig getifaddr en1"
-alias ips="ifconfig -a | grep -o 'inet6\? \(\([0-9]\+\.[0-9]\+\.[0-9]\+\.[0-9]\+\)\|[a-fA-F0-9:]\+\)' | sed -e 's/inet6* //'"
-
-# Trim new lines and copy to clipboard
-alias c="tr -d '\n' | pbcopy"
-
-# URL-encode strings
-alias urlencode='python -c "import sys, urllib as ul; print ul.quote_plus(sys.argv[1]);"'
-
 alias ll='ls -laFo'
 alias l='ls -l'
 alias la='ls -a'
@@ -26,87 +7,21 @@ alias ...='cd ../..'
 
 alias grep='grep --color=auto'
 
-alias e=$EDITOR
-alias es='vim -c"sy off"'
-
-alias g1='git log -1'
-alias g9='git lol -9'
-alias s1='svn log -l1'
-
 # Git
+alias gst="git status"
 alias ga='git add'
-alias gb='git branch -a'
-alias gc='git commit -am'
-alias gd='git di'
-alias gdc='git di --cached'
-alias gds='git di --staged'
-alias gf='git fetch --prune'
-alias gh='git hist'
-alias gl='git lol'
-alias gm='git merge --no-ff'
-alias gp='git pull --rebase'
-alias gr='git remote -v'
-alias gs='git st'
-alias gt='git tag'
-alias gst='git status -sb'
-alias grd='git rb origin/dev'
-
-[ -f "`which ack`" ] || alias ack=ack-grep
-alias gmt="git mergetool && find -type f -name '*.orig' -delete"
-alias gse='vim $(git status --porcelain | sed -ne "s/^ M //p")' # git status: edit all changed files
-[ -f "`which gmake`" ] && alias make=gmake
-
-hub_path=`which hub`
-[[ -f $hub_path ]] && alias git=$hub_path
-
-alias apache-restart='sudo /usr/local/etc/rc.d/apache.sh restart'
-alias apache-stop='sudo /usr/local/etc/rc.d/apache.sh stop'
-alias apache-start='sudo /usr/local/etc/rc.d/apache.sh start'
-
-alias mine='sudo chown -R $USER .'
-
-# SVN
-alias st='svn st'
-alias sup='svn update'
-alias sci='svn commit -m'
-sd()
-{
-    svn di $@ | colordiff
-}
-
-alias pg='pg_ctl -D /usr/local/var/postgres -l /usr/local/var/postgres/server.log'
-
-# serp
-
-# посмотреть логи рабочей копии
-wclog()
-{
-    tail -f /var/tmp/$USER-d-*
-}
-
-alias wlog=wclog
-
-wcnew()
-{
-    original-wcnew "$@" &&\
-    file "$HOME/$1" &&\
-    cd "$HOME/$1"
-}
-
-all()
-{
-    if [ `basename $PWD` == 'web3' ]; then
-        es pages-desktop/search/all/_all.priv.js +$1
-    elif [[ `basename $PWD` == 'web-touch-phone' ]]; then
-        es pages-touch-phone/search/all/_all.priv.js +$1
-    elif [[ $PWD =~ 'touch_phone' ]]; then
-        e pages-touch/common/_common.priv.js +$1
-    elif [[ $PWD =~ 'touch_pad' ]]; then
-        e pages-touch-pad/common/_common.priv.js +$1
-    else
-        e $([[ `echo "$2"`  ]] || cat .project | head -n 1)/pages/common/_common.priv.js +$1
-    fi
-}
+alias gp='git pull; and git push'
+alias gull='git pull'
+alias gush='git push'
+alias gb='git branch'
+alias gco='git checkout'
+alias gd='git diff'
+alias gdi='git difftool --extcmd icdiff'
+alias gfa='git fetch --all'
+alias grdi='git rebase -i origin/dev --autosquash'
+alias grd='git rebase origin/dev --autosquash'
+alias gfpcb='git push origin +(git rev-parse --abbrev-ref HEAD)'
+alias gamend='git add .; and git commit --amend --no-edit'
 
 # подмаунтить jail
 # используется http://osxfuse.github.com/
@@ -143,14 +58,4 @@ function tm-pair
         echo 'tm-pair feature_name # Create session'
         echo 'tm-pair user_name feature_name # Attach to session'
     fi
-}
-
-function wcname()
-{
-    echo "$(pwd | sed "s|$(echo $HOME)/||")/" | cut -f 1 -d /
-}
-
-function wcpath()
-{
-    echo "$HOME/$(wcname)"
 }
