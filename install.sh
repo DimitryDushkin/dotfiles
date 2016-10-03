@@ -6,6 +6,10 @@ do
     ln -fs $PWD/$f ~
 done
 
+echo "Копирую настройки ssh"
+mkdir ~/.ssh
+cp .sshconfig ~/.ssh/config
+
 echo "Настройка git ..."
 GIT_AUTHOR_NAME=`git config --global user.name`
 GIT_AUTHOR_EMAIL=`git config --global user.email`
