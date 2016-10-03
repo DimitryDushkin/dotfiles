@@ -4,7 +4,9 @@
 # don't like installing global node packages.
 # sbin is for brew
 set -gx PATH $PATH "~/bin" "./bin" "./node_modules/.bin"
-set -gx NODE_PATH $NODE_PATH (npm prefix -g)/lib/node_modules
+
+# Global node_modules is bad idea! When needed use "npm link browser-sync" for example
+#set -gx NODE_PATH $NODE_PATH "./node_modules" (npm prefix -g)/lib/node_modules
 
 alias gst="git status"
 alias ga='git add'
