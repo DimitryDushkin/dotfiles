@@ -4,6 +4,8 @@
 # don't like installing global node packages.
 # sbin is for brew
 set -gx PATH $PATH "~/bin" "./bin" "./node_modules/.bin"
+set -gx PATH $PATH "~/bin" "./bin" "./node_modules/.bin"
+set -gx JAVA_HOME (/usr/libexec/java_home)
 
 # Global node_modules is bad idea! When needed use "npm link browser-sync" for example
 #set -gx NODE_PATH $NODE_PATH "./node_modules" (npm prefix -g)/lib/node_modules
