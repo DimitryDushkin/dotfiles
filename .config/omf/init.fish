@@ -1,14 +1,19 @@
-
 # Prepend the relative ./bin, so I can get binstubs and the like in the PATH
 # automatically. The node modules binaries are also handy to have around. I
 # don't like installing global node packages.
 # sbin is for brew
-set -gx PATH $PATH "$HOME/bin" "./node_modules/.bin"
-set -gx JAVA_HOME (/usr/libexec/java_home)
+if test -d ~/bin
+  set -gx PATH $PATH "$HOME/bin"
+end
+
+set -gx PATH $PATH "./node_modules/.bin"
+
+if test -e /usr/libexec/java_home
+  set -gx JAVA_HOME (/usr/libexec/java_home)
+end
 
 # Global node_modules is bad idea! When needed use "npm link browser-sync" for example
 #set -gx NODE_PATH $NODE_PATH "./node_modules" (npm prefix -g)/lib/node_modules
-
 alias gst="git status"
 alias ga='git add'
 alias gp='git pull; and git push'
