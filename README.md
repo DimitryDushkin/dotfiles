@@ -2,6 +2,10 @@
 
 ```bash
 git clone git://github.com/DimitryDushkin/dotfiles ~/dotfiles && ~/dotfiles/install.sh
+chmod 600 ~/.ssh/config && chown $USER ~/.ssh/config
+
+git config --global user.email "dndushkin@yandex-team.ru"
+git config --global user.name "dndushkin"
 ```
 
 
