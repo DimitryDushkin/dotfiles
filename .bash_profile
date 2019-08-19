@@ -3,8 +3,6 @@
 # for examples
 
 
-alias tm='tmux -2 -S /tmp/tm-dndushkin'
-
 # If not running interactively, don't do anything
 case $- in
     *i*) ;;
@@ -125,3 +123,4 @@ fi
 test -e "${HOME}/.iterm2_shell_integration.bash" && source "${HOME}/.iterm2_shell_integration.bash"
 
 export JAVA_HOME=$(/usr/libexec/java_home)
+alias tmux='tmux -u'
