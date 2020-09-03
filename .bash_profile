@@ -120,7 +120,5 @@ then
      ln -sf $SSH_AUTH_SOCK ~/.ssh/ssh_auth_sock
 fi
 
-test -e "${HOME}/.iterm2_shell_integration.bash" && source "${HOME}/.iterm2_shell_integration.bash"
 
-export JAVA_HOME=$(/usr/libexec/java_home)
 alias tmux='tmux -u'

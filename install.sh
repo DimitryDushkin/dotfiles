@@ -25,5 +25,6 @@ omf install nvm
 rm -rf ~/.config
 mkdir ~/.config
 ln -s ~/dotfiles/.config/omf ~/.config/omf
+ln -s ~/dotfiles/.config/fish ~/.config/fish
 
 echo Done

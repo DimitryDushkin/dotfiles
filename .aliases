@@ -23,25 +23,6 @@ alias grd='git rebase origin/dev --autosquash'
 alias gfpcb='git push origin +(git rev-parse --abbrev-ref HEAD)'
 alias gamend='git add .; and git commit --amend --no-edit'
 
-# подмаунтить jail
-# используется http://osxfuse.github.com/
-jailmount()
-{
-    JAIL=${1:-"leon42.serp.yandex.ru"}
-    FOLDER=${2:-"/home/$USER"}
-    echo -e "\033[33m===> MOUNT JAIL: \033[31m$JAIL \033[0m"
-    mkdir -p /mount/$JAIL
-    jailunmount $JAIL
-    sshfs $USER@$JAIL:$FOLDER /mount/$JAIL -oauto_cache,reconnect,volname=$1
-}
-
-# размаунтить джейл
-jailunmount()
-{
-    JAIL=${1:-"leon42.serp.yandex.ru"}
-    umount /mount/$1 >/dev/null
-}
-
 # Tmux
 alias tm="tmux -2 -S /tmp/tm-`whoami`"
 alias tms="tm a -t"
