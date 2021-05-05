@@ -20,6 +20,14 @@ if test -e /usr/libexec/java_home
   set -gx JAVA_HOME (/usr/libexec/java_home)
 end
 
+if test -e $HOME/.cargo/bin/
+  set -gx PATH $PATH "$HOME/.cargo/bin/"
+end
+
+if test -e /usr/libexec/java_home
+  set -gx JAVA_HOME (/usr/libexec/java_home)
+end
+
 # Global node_modules is bad idea! When needed use "npm link browser-sync" for example
 #set -gx NODE_PATH $NODE_PATH "./node_modules" (npm prefix -g)/lib/node_modules
 alias gst="git status"

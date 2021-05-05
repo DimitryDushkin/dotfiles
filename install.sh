@@ -18,8 +18,7 @@ git config --global user.name "$GIT_AUTHOR_NAME"
 git config --global user.email "$GIT_AUTHOR_EMAIL"
 
 # install oh my fish
-curl -L https://github.com/oh-my-fish/oh-my-fish/raw/master/bin/install | fish
-omf install nvm
+curl -L https://get.oh-my.fish | fish
 
 # Install oh my fish config
 rm -rf ~/.config
